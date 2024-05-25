@@ -1,3 +1,9 @@
-# LinceHacks2024
+# Tecnologias
 
-Proyecto de lincehacks 2024
+- MongoDB
+- Firebase
+- Vue.js con TS
+- Vue-Router
+- Pinia
+- Express.js con TS
+- TailwindCCS & CSS
