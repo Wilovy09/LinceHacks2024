@@ -4,7 +4,7 @@ import NavBar from '@/components/LandingNavbar.vue'
 </script>
 
 <template>
-    <NavBar />
+    <NavBar route="/login" text="Iniciar sesión"/>
     <RouterView />
 </template>
 
