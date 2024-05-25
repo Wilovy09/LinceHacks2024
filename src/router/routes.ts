@@ -32,12 +32,16 @@ const routes = [
             {
                 path: "",
                 name: "home",
+<<<<<<< HEAD
                 component: () => import("@/views/home/HomeView.vue"),
             },
             {
                 path: "/complete-profile",
                 name: "complete-profile",
                 component: () => import("@/views/completeProfile/StudentCompleteProfile.vue"),
+=======
+                component: () => import("@/views/arrendadorHome/ArrendadorHomeView.vue"),
+>>>>>>> 146a3bde4bcf50be040f446d0a54b281c51b1d13
             }
         ],
 
