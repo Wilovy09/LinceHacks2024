@@ -3,6 +3,7 @@ import { onMounted } from 'vue';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/services/firebase';
 import { useRouter } from 'vue-router';
+import Rentas from '../rentas/Rentas.vue';
 
 const router = useRouter();
 
@@ -18,8 +19,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <h1 class="text-center">Home</h1>
-    <p>Welcome to the Home page!</p>
+    <Rentas />
 </template>
 
 <style scoped>
