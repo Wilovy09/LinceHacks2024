@@ -1,4 +1,4 @@
-# Tecnologias
+# Tecnologias de EstuDepa
 
 - MongoDB
 - Firebase
