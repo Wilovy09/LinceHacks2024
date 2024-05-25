@@ -14,5 +14,6 @@ a {
     border-radius: 3rem;
     background-color: #4B44B9;
     padding: 0 1rem;
+    color: #fff;
 }
 </style>
