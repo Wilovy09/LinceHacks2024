@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    <h1>Home</h1>
+    <h1 class="text-center">Home</h1>
     <p>Welcome to the Home page!</p>
 </template>
 
