@@ -4,8 +4,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/services/firebase';
 import { useRouter } from 'vue-router';
 import Rentas from '../rentas/RentasView.vue';
-import Renta from '@/entities/Renta';
-import Ubi from '@/entities/Ubicacion';
+import { type landLord } from '@/entities/Landlord';
 
 const router = useRouter();
 
@@ -24,14 +23,36 @@ function agregarInfoCuarto() {
 }
 
 /** Obtener de la base de datos */
-let rentaArray = [
-    new Renta(1, new Ubi(0, 0, "Calle 1", "Monterrey", "Nuevo Leon", 69420) , 6000, 1000, 2, 1, ['https://canalhogar.com/wp-content/uploads/2023/10/25-planos-y-Disenos-de-Casas-de-2-Pisos-Modernas-800x600.jpg']),
-    new Renta(1, new Ubi(0, 0, "Calle 1", "Monterrey", "Nuevo Leon", 69420) , 6000, 1000, 2, 1, ['https://canalhogar.com/wp-content/uploads/2023/10/25-planos-y-Disenos-de-Casas-de-2-Pisos-Modernas-800x600.jpg']),
-    new Renta(1, new Ubi(0, 0, "Calle 1", "Monterrey", "Nuevo Leon", 69420) , 6000, 1000, 2, 1, ['https://canalhogar.com/wp-content/uploads/2023/10/25-planos-y-Disenos-de-Casas-de-2-Pisos-Modernas-800x600.jpg']),
-    new Renta(1, new Ubi(0, 0, "Calle 2", "Monterrey", "Nuevo Leon", 69420) , 6000, 1000, 2, 1, ['https://canalhogar.com/wp-content/uploads/2023/10/25-planos-y-Disenos-de-Casas-de-2-Pisos-Modernas-800x600.jpg']),
-    new Renta(1, new Ubi(0, 0, "Calle 1", "Monterrey", "Nuevo Leon", 69420) , 6000, 1000, 2, 1, ['https://canalhogar.com/wp-content/uploads/2023/10/25-planos-y-Disenos-de-Casas-de-2-Pisos-Modernas-800x600.jpg']),
-    new Renta(1, new Ubi(0, 0, "Calle 2", "Monterrey", "Nuevo Leon", 69420) , 6000, 1000, 2, 1, ['https://canalhogar.com/wp-content/uploads/2023/10/25-planos-y-Disenos-de-Casas-de-2-Pisos-Modernas-800x600.jpg'])
-]
+let landlordInfo: landLord = {
+    id: "1",
+    fullName: "Juanito Banana",
+    email: "juanito123@gmail.com",
+    whatsapp: "81 2773 7829",
+    role: {rol: 'arrendador'},
+    livingPlace: [
+        {
+            name: "Depa 1",
+            price: 6000,
+            percentage: 10,
+            location: {
+                address: "Av Los Angeles 123",
+                city: 'Monterrey',
+                country: 'México',
+                zipCode: '69420',
+                latitude: 0,
+                longitude: 0
+            },
+            photos: ['https://canalhogar.com/wp-content/uploads/2023/10/25-planos-y-Disenos-de-Casas-de-2-Pisos-Modernas-800x600.jpg'],
+            rooms: 2,
+            bathrooms: 1
+        }
+    ],
+    genero: {rol: 'masculino'},
+    bornDate: '1999-12-12',
+    residenceId: 'base64string', // base64
+    rfc: 'RFC123456789',
+    hasCompleteProfile: true
+}
 </script>
 
 <template>
@@ -42,37 +63,25 @@ let rentaArray = [
                 <div class="info">
                     <p>Nombre:</p>
                     <div class="field">
-                        <p>Este es el nombre</p>
+                        <p>{{landlordInfo.fullName}}</p>
                     </div>
                     <p>Whatsapp:</p>
                     <div class="field">
-                        <p>Este es el nombre</p>
-                    </div>
-                    <p>Dirección:</p>
-                    <div class="field">
-                        <p>Este es el nombre</p>
-                    </div>
-                    <p>Código Postal:</p>
-                    <div class="field">
-                        <p>Este es el nombre</p>
-                    </div>
-                    <p>Ciudad:</p>
-                    <div class="field">
-                        <p>Este es el nombre</p>
-                    </div>
-                    <p>Estado:</p>
-                    <div class="field">
-                        <p>Este es el nombre</p>
+                        <p>{{landlordInfo.whatsapp}}</p>
                     </div>
                     <p>Correo:</p>
                     <div class="field">
-                        <p>Este es el nombre</p>
+                        <p>{{landlordInfo.email}}</p>
+                    </div>
+                    <p>RFC:</p>
+                    <div class="field">
+                        <p>{{ landlordInfo.rfc }}</p>
                     </div>
                 </div>
             </div>
             <div class="rentas-container">
                 <h2>Mis Rentas</h2>
-                <Rentas v-for="renta of rentaArray" :renta="renta"/>
+                <Rentas v-for="renta of landlordInfo.livingPlace" :renta="renta"/>
             </div>
         </div>
         <button type="button" onclick="agregarInfoCuarto()">Agregar nuevo cuarto</button>
@@ -80,7 +89,36 @@ let rentaArray = [
 </template>
 
 <style scoped>
+    button {
+        background-color: #6C63FF;
+        border-radius: 8px;
+        border-style: none;
+        box-sizing: border-box;
+        color: #FFFFFF;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 500;
+        height: 40px;
+        line-height: 20px;
+        list-style: none;
+        margin: 0;
+        outline: none;
+        padding: 10px 16px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        transition: color 100ms;
+        vertical-align: baseline;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        }
 
+        .button-1:hover,
+        .button-1:focus {
+        background-color: #F082AC;
+    }
     .content {
         display: flex;
         flex-direction: column;
@@ -91,7 +129,7 @@ let rentaArray = [
         flex: 1;
     }
     .rentas-container {
-        flex: 2;
+        flex: 6;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;

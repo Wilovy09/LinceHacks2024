@@ -7,13 +7,18 @@ const router = createRouter({
     routes: routes,
 });
 
-/* router.beforeEach((to, from, next) => {
-    const user = useUserStore().user
+/**
+ * router.beforeEach((to, from, next) => {
+    const hasCompleteProfile = false;
 
-    if (to.meta.requiresAuth && !user) {
-        return next('/login')
+    if (hasCompleteProfile == false && to.meta.requiresAuth) { {
+        next('/login')
     }
+
+
+
     next()
-}) */
+}})
+ */
 
 export default router;

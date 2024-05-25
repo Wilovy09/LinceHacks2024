@@ -3,9 +3,6 @@ import { RouterLink } from 'vue-router';
 import { ref, onMounted, onUnmounted } from 'vue';
 import EditSVG from './components/EditSVG.vue'
 import TrashSVG from './components/TrashSVG.vue'
-import type Renta from '@/entities/Renta';
-/** Obtener de la base de datos */
-let inputRenta: Renta;
 
 const isLargeScreen = ref(window.innerWidth > 768);
 
@@ -28,12 +25,12 @@ const props = defineProps(['renta']);
 <template>
     <div class="container">
         <div class="svgs">
-            <img :src="props.renta.photosURL[0]" alt="Fotos del departamento">
+            <img la :src="props.renta.photos[0]" alt="Fotos del departamento">
             <div v-if="isLargeScreen" class="info">
-                <p id="dir"> Dirección: {{ props.renta.ubicacion.calle }} </p>
-                <p> Costo: ${{ props.renta.costo }} </p>
-                <p> Servicios: ${{ props.renta.costoServicios }} </p>
-                <p> Cuartos: {{ props.renta.cuartos }} Baños: {{ props.renta.banos }} </p>
+                <p id="dir"> Dirección: {{ props.renta.location.address }} </p>
+                <p> Costo: ${{ props.renta.price }} </p>
+                <p> Servicios: ${{ props.renta.price * props.renta.percentage }} </p>
+                <p> Cuartos: {{ props.renta.rooms }} Baños: {{ props.renta.bathrooms }} </p>
             </div>
             <div class="btns">
                 <RouterLink to="/rentas/edit"><EditSVG :width="40" :height="40" viewBox="0 0 40 40" fill="none"/></RouterLink>
@@ -41,10 +38,10 @@ const props = defineProps(['renta']);
             </div>
         </div>
         <div v-if="!isLargeScreen" class="info">
-            <p id="dir"> Dirección: {{ props.renta.ubicacion.calle }} </p>
-            <p> Costo: ${{ props.renta.costo }} </p>
-            <p> Servicios: ${{ props.renta.costoServicios }} </p>
-            <p> Cuartos: {{ props.renta.cuartos }} Baños: {{ props.renta.banos }} </p>
+            <p id="dir"> Dirección: {{ props.renta.location.address }} </p>
+            <p> Costo: ${{ props.renta.price }} </p>
+            <p> Servicios: ${{ props.renta.price * props.renta.percentage }} </p>
+            <p> Cuartos: {{ props.renta.rooms }} Baños: {{ props.renta.bathrooms }} </p>
         </div>
     </div>
 </template>
