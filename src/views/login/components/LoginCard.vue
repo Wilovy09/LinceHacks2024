@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useRouter, RouterLink } from 'vue-router'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '@/services/firebase'
+import { useUserStore } from '@/stores/useUserStore'
 import SVG from './SVG.vue'
 import ButtonLink from '@/components/ButtonLink.vue'
 
@@ -10,13 +11,14 @@ const email = ref('')
 const password = ref('')
 const router = useRouter()
 
+const user = useUserStore().user
+
 async function LogIn(){
-    // console.log(email.value, password.value)
-    try{
+    if(!user){
         await signInWithEmailAndPassword(auth, email.value, password.value)
         router.push('/app')
-    } catch (error){
-        console.log(error)
+    } else {
+        router.push('/app')
     }
 }
 
@@ -38,7 +40,7 @@ async function LogIn(){
                     </div>
                     <div class="grid m-4">
                         <button class="bg-[#6C63FF] p-2 rounded-xl hover:bg-[#524cc4] hover:text-white transition-all">Login</button>
-                        <RouterLink to="/signup" class="text-center text-black mt-2">Crear cuenta</RouterLink>
+                        <RouterLink to="/register" class="text-center text-black mt-2">Crear cuenta</RouterLink>
                     </div>
                 </form>
             </div>

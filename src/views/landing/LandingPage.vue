@@ -4,6 +4,7 @@ import ButtonLink from '@/components/ButtonLink.vue';
 </script>
 
 <template>
+    <LandingNavbar />
     <div class="center">
         <div class="main-container">
             <LandingVector :width="350" :height="360" view-box="0 0 611 490" fill="none"/>
