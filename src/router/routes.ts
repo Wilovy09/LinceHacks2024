@@ -2,6 +2,7 @@ const routes = [
     {
         path: "/",
         name: "landingLayout",
+        meta: { requiresAuth: false },
         component: () => import("@/layouts/LandingLayout.vue"),
         children: [
             {
@@ -14,11 +15,19 @@ const routes = [
     {
         path: "/login",
         name: "login",
+        meta: { requiresAuth: false },
         component: () => import("@/views/login/LoginView.vue"),
+    },
+    {
+        path: "/register",
+        name: "register",
+        meta: { requiresAuth: false },
+        component: () => import("@/views/createAccount/CreateAccountView.vue"),
     },
     {
         path: "/app",
         name: "layout",
+        meta: { requiresAuth: true },
         children: [
             {
                 path: "",
