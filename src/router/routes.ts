@@ -35,9 +35,9 @@ const routes = [
                 component: () => import("@/views/home/HomeView.vue"),
             },
             {
-                path: "/arrendador-home",
-                name: "arrendadorHome",
-                component: () => import("@/views/arrendadorHome/arrendadorHomeView.vue"),
+                path: "/complete-profile",
+                name: "complete-profile",
+                component: () => import("@/views/completeProfile/StudentCompleteProfile.vue"),
             }
         ],
 

@@ -5,7 +5,7 @@ const props = defineProps<{
     labelText: string
     type: string
     nameAndId: string
-    modelValue: string
+    modelValue?: string
     optional?: boolean
 }>();
 

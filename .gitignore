@@ -1,5 +1,5 @@
 #Backend
-backend/*
+/backend/**
 
 # Logs
 logs

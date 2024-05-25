@@ -5,9 +5,9 @@ export type Student = {
     fullName: string;
     email: string;
     whatsapp: string;
-    role: Role;
+    role: 'arrendador' | 'estudiante';
     collegiate: Collegiate;
-    genero: Gender;
+    genero: 'masculino' | 'femenino' | 'otro';
     bornDate: string;
     studentId: string; // base64
     residenceId: string; // base64
@@ -16,20 +16,20 @@ export type Student = {
     hasCompleteProfile: boolean;
 }
 
-type Role = {
+export type Role = {
     rol: 'arrendador' | 'estudiante'
 }
 
-type Gender = {
-    rol: 'masculino' | 'estudiante'
+export type Gender = {
+    rol: 'masculino' | 'femenino' | 'otro'
 }
 
-type Collegiate = {
+export type Collegiate = {
     name: string;
     location: Location;
 }
 
-type Location = {
+export type Location = {
     address: string;
     city: string;
     country: string;

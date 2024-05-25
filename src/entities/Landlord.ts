@@ -19,14 +19,18 @@ type Role = {
 }
 
 type Gender = {
-    rol: 'masculino' | 'estudiante'
+    rol: 'masculino' | 'femenino' | 'otro'
 }
 
 type livingPlace = {
+    id: string;
     name: string;
     price: number;
     percentage: number;
     location: Location;
+    bathrooms: string;
+    rooms: number;
+    userId: string;
 }
 
 type Location = {
