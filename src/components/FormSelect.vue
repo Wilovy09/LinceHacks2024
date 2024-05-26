@@ -4,7 +4,7 @@ import { defineProps, defineEmits } from 'vue';
 const props = defineProps<{
     labelText: string
     nameAndId: string
-    modelValue: string | number | boolean
+    modelValue: string
     optional?: boolean
 }>();
 

@@ -19,7 +19,7 @@
             <ul class="text-xl text-center items-center gap-x-5 pt-4 md:gap-x-4 lg:text-lg lg:flex lg:pt-0">
                 <li class="py-2 lg:py-0">
                     <RouterLink class="inline-flex flex-col items-center justify-center px-5" to="/app">
-                        <span class="font-bold text-white hover:text-[#000000]">text</span>
+                        <span class="font-bold text-white hover:text-[#000000]">Inicio</span>
                     </RouterLink>
                 </li>
                 <!-- Este siempre abajo -->

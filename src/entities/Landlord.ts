@@ -18,11 +18,11 @@ export type Role = {
     rol: 'arrendador' | 'estudiante'
 }
 
-export type Gender = {
-    rol: 'femenino' | 'masculino' | 'otro'
+type Gender = {
+    rol: 'masculino' | 'estudiante'
 }
 
-export type livingPlace = {
+type livingPlace = {
     name: string;
     price: number;
     percentage: number;
@@ -30,16 +30,9 @@ export type livingPlace = {
     sharedBathroom: boolean;
     bathrooms: number;
     location: Location;
-    rooms: number;
-    allowsPets: boolean;
-    allowsRentPlans: boolean;
-    rentPlans: string[] | null;
-    parking: boolean;
-    allowsTransfers: boolean;
-    allowsCrypto: boolean;
-    bankAccount: string | null;
-    cryptoWallet: string | null;
     photos: string[];
+    rooms: number;
+    bathrooms: number;
 }
 
 export type Location = {
@@ -49,4 +42,8 @@ export type Location = {
     zipCode: string;
     latitude: number;
     longitude: number;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 146a3bde4bcf50be040f446d0a54b281c51b1d13
