@@ -3,7 +3,6 @@ import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps<{
     labelText: string
-    type: string
     nameAndId: string
     modelValue: string | number | boolean
     optional?: boolean
@@ -18,13 +17,13 @@ const updateValue = (event: Event) => {
 
 <template>
     <label class="block" :for="props.nameAndId">{{ props.labelText }}</label>
-    <input
-        :type="props.type"
-        class="bg-background border-white focus:outline-gray-200 w-full rounded-sm mt-3 mb-4 lg:py-2 py-1 px-4"
-        :name="props.nameAndId"
-        :id="props.nameAndId"
-        :v-model="props.modelValue"
-        @input="updateValue"
-        :required="props.optional"
-    />
+    <select class="bg-background border-white focus:outline-gray-200 w-full rounded-sm mt-3 mb-4 lg:py-2 py-1 px-4"
+            :name="props.nameAndId"
+            :id="props.nameAndId"
+            :v-model="props.modelValue"
+            @input="updateValue"
+            :required="props.optional">
+            <option value="true">Sí</option>
+            <option value="false">No</option>
+    </select>
 </template>

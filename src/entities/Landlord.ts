@@ -14,25 +14,35 @@ export type landLord = {
     hasCompleteProfile: boolean;
 }
 
-type Role = {
+export type Role = {
     rol: 'arrendador' | 'estudiante'
 }
 
-type Gender = {
-    rol: 'masculino' | 'estudiante'
+export type Gender = {
+    rol: 'femenino' | 'masculino' | 'otro'
 }
 
-type livingPlace = {
+export type livingPlace = {
     name: string;
     price: number;
     percentage: number;
-    location: Location;
-    photos: string[];
-    rooms: number;
+    furnished: boolean;
+    sharedBathroom: boolean;
     bathrooms: number;
+    location: Location;
+    rooms: number;
+    allowsPets: boolean;
+    allowsRentPlans: boolean;
+    rentPlans: string[] | null;
+    parking: boolean;
+    allowsTransfers: boolean;
+    allowsCrypto: boolean;
+    bankAccount: string | null;
+    cryptoWallet: string | null;
+    photos: string[];
 }
 
-type Location = {
+export type Location = {
     address: string;
     city: string;
     country: string;
