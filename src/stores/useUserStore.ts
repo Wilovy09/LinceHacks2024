@@ -3,22 +3,26 @@ import { onAuthStateChanged, signOut, type User } from "firebase/auth";
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { StudentsRepository } from "@/repositories/StudentsRepositorys";
 
 export const useUserStore = defineStore("user", () => {
     const router = useRouter();
     const user = ref<User | null>(getLocalStorageUser());
+    const studentsRepository = new StudentsRepository();
 
     onAuthStateChanged(auth, async (currentUser) => {
         if (!currentUser) {
             router.push("/login");
             return;
         }
-        localStorage.setItem("user", JSON.stringify(user.value));
+        const userDB = studentsRepository.fetchStudent(currentUser.uid);
+
+        localStorage.setItem("user", JSON.stringify(userDB));
     });
 
     function getLocalStorageUser() {
-        const localUser = localStorage.getItem("user");
-        return localUser ? JSON.parse(localUser) : null;
+            const localUser = localStorage.getItem("user");
+            return localUser ? JSON.parse(localUser) : null;
     }
 
     function removeLocalStorageUser() {
