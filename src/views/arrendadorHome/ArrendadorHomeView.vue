@@ -18,10 +18,6 @@ onMounted(() => {
     });
 });
 
-function agregarInfoCuarto() {
-    // router.push("/rentas/new");
-}
-
 /** Obtener de la base de datos */
 let landlordInfo: landLord = {
     id: "1",
@@ -84,7 +80,7 @@ let landlordInfo: landLord = {
                 <Rentas v-for="renta of landlordInfo.livingPlace" :renta="renta"/>
             </div>
         </div>
-        <button type="button" onclick="agregarInfoCuarto()">Agregar nuevo cuarto</button>
+        <RouterLink to="/app/newLivingPlace"><button>Agregar Nuevo Cuarto</button></RouterLink>
     </div>
 </template>
 
