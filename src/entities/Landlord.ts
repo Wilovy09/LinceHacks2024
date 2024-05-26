@@ -42,8 +42,4 @@ export type Location = {
     zipCode: string;
     latitude: number;
     longitude: number;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 146a3bde4bcf50be040f446d0a54b281c51b1d13
